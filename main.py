@@ -1,5 +1,6 @@
 import telebot # библиотека telebot
 from config import token # импорт токена
+import logic
 
 bot = telebot.TeleBot(token) 
 
@@ -12,6 +13,6 @@ def start(message):
 @bot.message_handler(content_types=['text'])
 def echo_message(message):
 
-    bot.reply_to(message, message.text) 
+    bot.reply_to(message, logic.gpt (message.text)) 
 
 bot.infinity_polling(none_stop=True)
